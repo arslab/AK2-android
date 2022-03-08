@@ -1,2 +1,2 @@
 include ':app'
-rootProject.name = "AK2android"
+rootProject.name = "nfctest"

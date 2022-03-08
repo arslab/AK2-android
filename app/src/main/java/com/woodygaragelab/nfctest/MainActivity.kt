@@ -55,7 +55,7 @@ class MainActivity : AppCompatActivity() {
         mNfcAdapter = NfcAdapter.getDefaultAdapter(applicationContext)
 
         var tagTextView: TextView = findViewById(R.id.tagText)
-        tagTextView.text = "カードをタッチしてください"
+        tagTextView.text = "カードをタッチしてください 0308"
 
         val btn_in: Button = findViewById(R.id.btn_in)
         btn_in.setOnClickListener {
