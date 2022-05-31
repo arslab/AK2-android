@@ -64,7 +64,8 @@ class MainActivity : AppCompatActivity() {
         val btn_in: Button = findViewById(R.id.btn_in)
         btn_in.setOnClickListener {
             tagTextView.text = "recording!"
-            callAK2CreateAttendance("01:10:4D:00:82:0A:1E:04")
+            //callAK2CreateAttendance("01:10:4D:00:82:0A:1E:04")
+            callAK2CreateAttendance("00:11:22:33:44:55:66:77") // unkown cardid test
         }
 
         val btn_out: Button = findViewById(R.id.btn_out)
@@ -174,6 +175,7 @@ class MainActivity : AppCompatActivity() {
                     val TrxCode:  String,
                     val LastName: String,
                     val Remarks:  String,
+                    val CardID:   String,
             )
             @Serializable
             data class AK2Response2(
@@ -189,14 +191,17 @@ class MainActivity : AppCompatActivity() {
             val ak2_trxcode  = ak2_response.body.TrxCode
             val ak2_lastname = ak2_response.body.LastName
             val ak2_remarks  = ak2_response.body.Remarks
+            val ak2_cardid   = ak2_response.body.CardID
 
-            val tagTextView:   TextView = findViewById(R.id.text0)
+            val textViewText0: TextView = findViewById(R.id.text0)
             val textViewText1: TextView = findViewById(R.id.text1)
             val textViewText2: TextView = findViewById(R.id.text2)
+            val textViewText3: TextView = findViewById(R.id.text3)
 
-            tagTextView.text   = ak2_empno   + "     " + ak2_lastname
-            textViewText1.text = ak2_date    + "     " + ak2_time
-            textViewText2.text = ak2_trxcode + "     " + ak2_remarks
+            textViewText0.text = ak2_cardid
+            textViewText1.text = ak2_empno   + "     " + ak2_lastname
+            textViewText2.text = ak2_date    + "     " + ak2_time
+            textViewText3.text = ak2_trxcode + "     " + ak2_remarks
         }
     }
 
